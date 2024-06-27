@@ -45,3 +45,6 @@ Enables the sale of stocks currently held in the user's portfolio, updating the 
 
 ### History Page
 Chronicles all user transactions, listing the nature of the transaction (buy/sell), stock symbol, transaction price, share quantity, and the date/time of execution.
+
+### Leaderboard Page
+Displays a ranking of users based on their portfolio profits. Users are ranked by the total profit earned from their stock transactions, calculated as the difference between the current portfolio value and the initial investment. The page includes:

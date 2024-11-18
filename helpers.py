@@ -55,7 +55,8 @@ def lookup(symbol):
     """Look up quote for symbol using Alpha Vantage API."""
     # API request preparation
     symbol = symbol.upper()
-    api_key = 'MNFKXB2M6YSWS9KW'  # Replace with your actual API key
+    
+    api_key ='MNFKXB2M6YSWS9KW'#'PVLV9VV4CMMO6IWG''X9WC90ZW5HUXWY5H'  # Replace with your actual API key
     url = f"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval=5min&apikey={api_key}"
 
     # Query API with retry logic

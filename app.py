@@ -298,3 +298,60 @@ def sell():
 
         # render sell.html form, passing in current stocks
         return render_template("sell.html", portfolio=portfolio)
+
+
+@app.route("/resources", methods=["GET", "POST"])
+@login_required
+def resources():
+
+    # form submit as html directed
+    if request.method == "GET":
+        return render_template("resources.html")
+    
+@app.route("/leaderboard")
+@login_required
+def leaderboard():
+    """Show leaderboard of users based on profit/loss"""
+    
+    # Fetch the entire history
+    rows = db.execute("SELECT * FROM history")
+
+    # Dictionary to store profit/loss for each user
+    user_profit_loss = {}
+
+    # Calculate profit or loss for each user
+    for row in rows:
+        user_id = row["user_id"]
+        method = row["method"]
+        price = row["price"]
+        shares = row["shares"]
+        
+        # Initialize the user's profit/loss to 0 if not already present
+        if user_id not in user_profit_loss:
+            user_profit_loss[user_id] = 0
+        
+        # Calculate profit/loss based on method
+        if method == "Buy":
+            user_profit_loss[user_id] -= price * shares
+        elif method == "Sell":
+            user_profit_loss[user_id] += price * shares
+
+    # Fetch usernames from the users table
+    users = db.execute("SELECT id, username FROM users")
+    user_map = {user["id"]: user["username"] for user in users}
+
+    # Convert the profit/loss dictionary to a list with usernames
+    leaderboard = [
+        {"username": user_map[user_id], "total_profit_loss": total_profit_loss}
+        for user_id, total_profit_loss in user_profit_loss.items()
+        if user_id in user_map
+    ]
+
+    leaderboard.sort(
+        key=lambda x: (x["total_profit_loss"] < 0, -x["total_profit_loss"])
+    )
+
+    for rank, user in enumerate(leaderboard, start=1):
+        user["rank"] = rank
+    return render_template("leaderboard.html", leaderboard=leaderboard)
+

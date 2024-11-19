@@ -126,3 +126,126 @@ nav .navbar-brand .black
 
     font-size: 16px;
 }
+
+/* General Section Styling */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+/* Features Section */
+.features-section {
+    background: #f9f9f9;
+}
+
+.feature-box {
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+}
+
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.feature-description {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* About Section */
+.about-section {
+    background: #ffffff;
+}
+
+.about-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.about-list li {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 20px;
+}
+
+.about-list li::before {
+    content: '\2022';
+    color: #007bff;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(25, 34, 169);
+    text-align: center;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://repository-images.githubusercontent.com/509108007/6ca40aee-71bb-47e2-9ecf-df00f3a8386a');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5; /* Adjust opacity here */
+    z-index: 1;
+    color: rgb(13, 32, 109);
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.hero-section h1 {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section p {
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+#features i {
+    margin-bottom: 10px;
+}

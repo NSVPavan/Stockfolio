@@ -160,6 +160,7 @@ def login():
 
 
 @app.route("/logout")
+@login_required
 def logout():
     """Log user out"""
 
@@ -171,6 +172,7 @@ def logout():
 
 
 @app.route("/quote", methods=["GET", "POST"])
+@login_required
 def quote():
 
     # form submit as html directed
